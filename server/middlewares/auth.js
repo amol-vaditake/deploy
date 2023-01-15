@@ -10,6 +10,7 @@ module.exports = async (req, res, next) => {
       role: 'admin',
       userId: decodedUserFromToken.id,
     });
+    req.user = decodedUserFromToken;
     next();
   } catch (err) {
     res.status(401).json({
